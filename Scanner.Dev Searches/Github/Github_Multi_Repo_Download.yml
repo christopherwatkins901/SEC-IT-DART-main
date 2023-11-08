@@ -1,0 +1,8 @@
+(
+  (%ingest.match_rule_name:"github" and action:"repo.download_zip") or
+  (%ingest.match_rule_name:"github" and action:"git_clone") or
+  (%ingest.match_rule_name:"github" and action:"api_download") or
+  (%ingest.match_rule_name:"github" and action:"release_download") or
+  (%ingest.match_rule_name:"github" and action:"package_download") or
+  (%ingest.match_rule_name:"github" and action:"fork")
+) | groupbycount actor, repo_name, actor_ip, user_agent
